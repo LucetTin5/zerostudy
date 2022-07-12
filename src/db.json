@@ -1,0 +1,74 @@
+{
+  "studies": [
+    {
+      "id": "0",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "1",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "2",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "3",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "4",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "5",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "6",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "7",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "kakaotalk blah blah"
+    },
+    {
+      "id": "8",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "https://naver.com"
+    },
+    {
+      "id": "9",
+      "title": "stduy 1",
+      "author": "author 1",
+      "content": "lorem ipsum",
+      "contact": "https://google.com"
+    }
+  ]
+}
