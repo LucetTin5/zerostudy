@@ -48,14 +48,23 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    newStudy(data);
-    setData({
-      title: "",
-      author: "",
-      content: "",
-      contact: "",
-    });
-    handleClose();
+    if (
+      data.title.length > 3 &&
+      data.author.length > 3 &&
+      data.content.length > 10 &&
+      data.contact.length > 3
+    ) {
+      newStudy(data);
+      setData({
+        title: "",
+        author: "",
+        content: "",
+        contact: "",
+      });
+      handleClose();
+    } else {
+      alert("내용을 채워주세요.");
+    }
   };
   return (
     <Modal
@@ -83,7 +92,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 value={data.title}
                 onChange={handleChange("title")}
                 minLength={3}
-                required
+                required="true"
               />
             </Wrapper>
             <Wrapper>
@@ -95,7 +104,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 value={data.author}
                 onChange={handleChange("author")}
                 minLength={3}
-                required
+                required="true"
               />
             </Wrapper>
             <Wrapper>
@@ -106,7 +115,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="content"
                 value={data.content}
                 onChange={handleChange("content")}
-                minLength={20}
+                minLength={10}
                 style={{
                   flex: 2.8,
                   minHeight: "80px",
@@ -122,7 +131,8 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 name="contact"
                 id="contact"
                 value={data.contact}
-                minLength={5}
+                minLength={3}
+                required="true"
                 onChange={handleChange("contact")}
               />
             </Wrapper>
