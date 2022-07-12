@@ -82,6 +82,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="title"
                 value={data.title}
                 onChange={handleChange("title")}
+                minLength={3}
                 required
               />
             </Wrapper>
@@ -93,6 +94,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="author"
                 value={data.author}
                 onChange={handleChange("author")}
+                minLength={3}
                 required
               />
             </Wrapper>
@@ -104,6 +106,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="content"
                 value={data.content}
                 onChange={handleChange("content")}
+                minLength={20}
                 style={{
                   flex: 2.8,
                   minHeight: "80px",
@@ -119,6 +122,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 name="contact"
                 id="contact"
                 value={data.contact}
+                minLength={5}
                 onChange={handleChange("contact")}
               />
             </Wrapper>
