@@ -17,18 +17,11 @@ const StudyCard = ({ info: { title, author, contact, content } }) => {
           {author}
         </Typography>
         <Typography variant="body2">{content}</Typography>
+        <br></br>
+        <hr></hr>
+        <br></br>
+        <Typography variant="body2">연락처: {contact}</Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">
-          <a
-            href={contact}
-            rel="noreferrer noopener"
-            style={{ textDecoration: "none" }}
-          >
-            오픈카톡 연결
-          </a>
-        </Button>
-      </CardActions>
     </Card>
   );
 };

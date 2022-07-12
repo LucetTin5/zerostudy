@@ -113,7 +113,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
               />
             </Wrapper>
             <Wrapper>
-              <Label htmlFor="contact">오픈카톡</Label>
+              <Label htmlFor="contact">오픈카톡/연락처</Label>
               <Input
                 type="text"
                 name="contact"

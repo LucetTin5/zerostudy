@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import StudyCard from "../components/StudyCard";
 import StudyModal from "../components/StudyModal";
-import db from "../db.json";
+import { db } from "../firebase";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 
 const Header = styled.header`
   margin-bottom: 20px;
@@ -21,15 +22,28 @@ const Home = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    setStudies(db.studies);
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, "studies"));
+      let tempArr = [];
+      querySnapshot.forEach((doc) => {
+        tempArr.push(doc.data());
+      });
+      setStudies([...studies, ...tempArr]);
+    })();
   }, []);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const newStudy = (data) => {
-    data.id = studies.length;
-    setStudies([...studies, data]);
+  const newStudy = async (data) => {
+    try {
+      data.id = Date.now();
+      const docRef = await addDoc(collection(db, "studies"), data);
+      console.log("Document written with ID: ", docRef.id);
+      setStudies([...studies, data]);
+    } catch (e) {
+      console.log("Error adding document: ", e);
+    }
   };
   return (
     <div className="App">
