@@ -89,8 +89,8 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
         titleInput.current.focus();
       } else if (data.author.strip().length <= 2) {
         alert("작성자는 세 글자 이상이어야 합니다.");
-        authorInput.current.strip().focus();
-      } else if (data.content.length < 10) {
+        authorInput.current.focus();
+      } else if (data.content.strip().length < 10) {
         alert("내용은 열 글자 이상이어야 합니다.");
         contentInput.current.focus();
       } else if (data.contact.strip().length <= 2) {
