@@ -1,5 +1,5 @@
 import { Box, Button, Modal, Typography } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "@emotion/styled";
 
 const modalStyle = {
@@ -27,6 +27,8 @@ const Label = styled.label`
   flex: 1;
   display: flex;
   align-items: center;
+  font-size: 14px;
+  font-weight: bold;
 `;
 const Input = styled.input`
   flex: 3;
@@ -34,6 +36,18 @@ const Input = styled.input`
   border: 1px solid gray;
   margin-left: 10px;
   padding: 7px 10px;
+  &:focus {
+    border: 2px solid black;
+  }
+`;
+const Textarea = styled.textarea`
+  flex: 2.8;
+  min-height: 80px;
+  border: 1px solid gray;
+  padding: 7px 10px;
+  &:focus {
+    border: 2px solid green;
+  }
 `;
 
 const StudyModal = ({ open, handleClose, newStudy }) => {
@@ -43,6 +57,11 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
     content: "",
     contact: "",
   });
+  const titleInput = useRef();
+  const authorInput = useRef();
+  const contentInput = useRef();
+  const contactInput = useRef();
+
   const handleChange =
     (prop) =>
     ({ target: { value } }) => {
@@ -65,7 +84,19 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
       });
       handleClose();
     } else {
-      alert("내용을 채워주세요.");
+      if (data.title.length <= 2) {
+        alert("타이틀은 세 글자 이상이어야 합니다.");
+        titleInput.current.focus();
+      } else if (data.author.length <= 2) {
+        alert("작성자는 세 글자 이상이어야 합니다.");
+        authorInput.current.focus();
+      } else if (data.content.length <= 10) {
+        alert("내용은 열 글자 초과여야 합니다.");
+        contentInput.current.focus();
+      } else if (data.contact.length <= 2) {
+        alert("연락처는 세 글자 이상이어야 합니다.");
+        contactInput.current.focus();
+      }
     }
   };
   return (
@@ -94,6 +125,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 value={data.title}
                 onChange={handleChange("title")}
                 minLength={2}
+                ref={titleInput}
                 required={true}
               />
             </Wrapper>
@@ -106,25 +138,21 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 value={data.author}
                 onChange={handleChange("author")}
                 minLength={2}
+                ref={authorInput}
                 required={true}
               />
             </Wrapper>
             <Wrapper>
               <Label htmlFor="content">스터디 내용</Label>
-              <textarea
+              <Textarea
                 type="text"
                 name="content"
                 id="content"
                 value={data.content}
                 onChange={handleChange("content")}
-                minLength={6}
-                style={{
-                  flex: 2.8,
-                  minHeight: "80px",
-                  border: "1px solid gray",
-                  padding: "7px 10px",
-                }}
-              />
+                minLength={10}
+                ref={contentInput}
+              ></Textarea>
             </Wrapper>
             <Wrapper>
               <Label htmlFor="contact">오픈카톡/연락처</Label>
@@ -135,6 +163,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 value={data.contact}
                 minLength={2}
                 required={true}
+                ref={contactInput}
                 onChange={handleChange("contact")}
               />
             </Wrapper>

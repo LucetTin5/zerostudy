@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Nav = styled.nav`
   height: 80px;
   display: flex;
-  background-color: #e0f7fa;
+  background-color: #d5faff;
   align-items: center;
   padding: 10px 100px;
   @media screen and (max-width: 768px) {
