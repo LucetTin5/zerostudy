@@ -8,11 +8,14 @@ const Nav = styled.nav`
   align-items: center;
   padding: 10px 100px;
   @media screen and (max-width: 768px) {
-    display: none;
+    padding: 10px;
   }
 `;
 const Left = styled.div`
   flex: 1;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 const Center = styled.div`
   flex: 1;
@@ -20,11 +23,17 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 const Right = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 const HeaderIcon = styled.div`
   cursor: pointer;

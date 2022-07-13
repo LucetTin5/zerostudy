@@ -43,16 +43,18 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
     content: "",
     contact: "",
   });
-  const handleChange = (prop) => (event) => {
-    setData({ ...data, [prop]: event.target.value });
-  };
+  const handleChange =
+    (prop) =>
+    ({ target: { value } }) => {
+      setData({ ...data, [prop]: value });
+    };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      data.title.length > 3 &&
-      data.author.length > 3 &&
+      data.title.length > 2 &&
+      data.author.length > 2 &&
       data.content.length > 10 &&
-      data.contact.length > 3
+      data.contact.length > 2
     ) {
       newStudy(data);
       setData({
@@ -91,8 +93,8 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="title"
                 value={data.title}
                 onChange={handleChange("title")}
-                minLength={3}
-                required="true"
+                minLength={2}
+                required={true}
               />
             </Wrapper>
             <Wrapper>
@@ -103,8 +105,8 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="author"
                 value={data.author}
                 onChange={handleChange("author")}
-                minLength={3}
-                required="true"
+                minLength={2}
+                required={true}
               />
             </Wrapper>
             <Wrapper>
@@ -115,7 +117,7 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 id="content"
                 value={data.content}
                 onChange={handleChange("content")}
-                minLength={10}
+                minLength={6}
                 style={{
                   flex: 2.8,
                   minHeight: "80px",
@@ -131,8 +133,8 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
                 name="contact"
                 id="contact"
                 value={data.contact}
-                minLength={3}
-                required="true"
+                minLength={2}
+                required={true}
                 onChange={handleChange("contact")}
               />
             </Wrapper>

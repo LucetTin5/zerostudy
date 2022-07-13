@@ -1,14 +1,8 @@
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 
 const StudyCard = ({ info: { title, author, contact, content } }) => {
   return (
-    <Card variant="outlined">
+    <Card variant="outlined" sx={{ boxShadow: 3 }}>
       <CardContent>
         <Typography variant="h5" component="div">
           {title}

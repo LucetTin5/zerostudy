@@ -15,6 +15,10 @@ const Main = styled.main`
   padding: 0 100px;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 10px;
+  }
 `;
 
 const Home = () => {
