@@ -84,16 +84,16 @@ const StudyModal = ({ open, handleClose, newStudy }) => {
       });
       handleClose();
     } else {
-      if (data.title.length <= 2) {
+      if (data.title.strip().length <= 2) {
         alert("타이틀은 세 글자 이상이어야 합니다.");
         titleInput.current.focus();
-      } else if (data.author.length <= 2) {
+      } else if (data.author.strip().length <= 2) {
         alert("작성자는 세 글자 이상이어야 합니다.");
-        authorInput.current.focus();
-      } else if (data.content.length <= 10) {
-        alert("내용은 열 글자 초과여야 합니다.");
+        authorInput.current.strip().focus();
+      } else if (data.content.length < 10) {
+        alert("내용은 열 글자 이상이어야 합니다.");
         contentInput.current.focus();
-      } else if (data.contact.length <= 2) {
+      } else if (data.contact.strip().length <= 2) {
         alert("연락처는 세 글자 이상이어야 합니다.");
         contactInput.current.focus();
       }
